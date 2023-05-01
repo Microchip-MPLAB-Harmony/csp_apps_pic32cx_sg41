@@ -1,0 +1,81 @@
+{
+	"metaDataVersion": "1.0.0",
+	"category": "com.microchip.ide.project",
+	"content": {
+		"metaDataVersion": "1.1.0",
+		"name": "com.microchip.mcu32.mplabx.project.csp_apps_sam_d5x_e5x_nvmctrl_flash_read_write",
+		"version": "3.2.0",
+		"displayName": "NVMCTRL read write Example for SAM D5x/E5x Family",
+		"projectName": "nvmctrl_flash_read_write_pic32cx_sg41_cult",
+		"shortDescription": "This example application demonstrates how to use the NVMCTRL to erase and program the internal Flash memory.",
+		"ide": {
+			"name": "MPLABX",
+			"semverRange": ">=6.0.0"
+		},
+		"compiler": [
+			{
+				"name": "XC32",
+				"semverRange": ">=4.1.0"
+			}
+		],
+		"dfp": {
+			"name": "CMSIS",
+			"semverRange": "^5.4.0"
+		},
+		"configurator": {
+			"name": "MHC",
+			"semverRange": ">=3.8.5"
+		},
+		"device": {
+			"metaDataVersion": "1.0.0",
+			"category": "com.microchip.portal.contentRef",
+			"content": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.device",
+				"name": "PIC32CX1025SG41128",
+				"versionRange": "*"
+			}
+		},
+		"author": "Microchip",
+		"subcategories": [
+			[
+				"Development Kit",
+				"SAM E54 Xplained Pro board"
+			],
+			[
+				"Harmony",
+				"Peripherals",
+				"NVMCTRL"
+			],
+			[
+				"Peripherals",
+				"NVMCTRL"
+			]
+		],
+		"peripherals": [
+			"NVMCTRL"
+		],
+		"keywords": [
+			"MHC",
+			"Harmony",
+			"PIC32CX1025SG41128",
+			"SAM D5x/E5x Family",
+			"Memory",
+			"NVMCTRL",
+			"NVM",
+			"Flash",
+			"NVM Controller"
+		],
+		"additionalData": {
+			"longDescription": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.portal.fileRef",
+				"content": {
+					"metaDataVersion": "1.0.0",
+					"fileName": "./../../readme.md",
+					"mimeType": "text/markdown"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+{
+    "linker": {
+        "script": "..\\src\\config\\pic32cx_sg41_cult_keil\\pic32cx_sg41_cult_keil.sct"
+    }, 
+    "assembler": {
+        "macros": [], 
+        "includes": []
+    }, 
+    "general": {
+        "name": "pic32cx_sg41_cult_keil", 
+        "device": "PIC32CX1025SG41128"
+    }, 
+    "compiler": {
+        "macros": [], 
+        "includes": [
+            "..\\src", 
+            "..\\src\\config\\pic32cx_sg41_cult_keil", 
+            "..\\src\\packs\\PIC32CX1025SG41128_DFP", 
+            "..\\src\\packs\\CMSIS\\CMSIS\\Core\\Include", 
+            "..\\src\\packs\\CMSIS"
+        ]
+    }
+}
