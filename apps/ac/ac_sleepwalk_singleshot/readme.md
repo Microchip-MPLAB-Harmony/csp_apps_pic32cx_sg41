@@ -1,5 +1,5 @@
 ---
-parent: Harmony 3 peripheral library application examples for SAM D5X/E5X family
+parent: Harmony 3 peripheral library application examples for PIC32CX SG41 family
 title: AC Sleepwalking 
 has_children: false
 has_toc: false
@@ -17,7 +17,7 @@ Single shot conversion is triggered by RTC compare event. Generation of a trigge
 
 ## Downloading and building the application
 
-To clone or download this application from Github, go to the [main page of this repository](https://github.com/Microchip-MPLAB-Harmony/csp_apps_sam_d5x_e5x) and then click **Clone** button to clone this repository or download as zip file.
+To clone or download this application from Github, go to the [main page of this repository](https://github.com/Microchip-MPLAB-Harmony/csp_apps_pic32cx_sg41) and then click **Clone** button to clone this repository or download as zip file.
 This content can also be downloaded using content manager by following these [instructions](https://github.com/Microchip-MPLAB-Harmony/contentmanager/wiki).
 
 Path of the application within the repository is **apps/ac/ac_sleepwalk_singleshot/firmware** .
@@ -26,7 +26,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| pic32cx_sg41_cult.X    | MPLABX Project for [SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro)|
+| pic32cx_sg41_cult.X    | MPLABX Project for [PIC32CX SG41 Curiosity Ultra board](https://www.microchip.com/en-us/development-tool/EV06X38A)|
 |||
 
 ## Setting up the hardware
@@ -35,18 +35,18 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| pic32cx_sg41_cult.X    | [SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro)|
+| pic32cx_sg41_cult.X    | [PIC32CX SG41 Curiosity Ultra board](https://www.microchip.com/en-us/development-tool/EV06X38A)|
 |||
 
-### Setting up [SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro)
+### Setting up [PIC32CX SG41 Curiosity Ultra board](https://www.microchip.com/en-us/development-tool/EV06X38A)
 
-- Connect a voltage below VDD to AC-AIN0 (pin 14 of the EXT1 connector)
+- Connect a voltage below VDD to AC-AIN0 (pin 04 of the J501 connector)
 - Connect the Debug USB port on the board to the computer using a micro USB cable
 
 ## Running the Application
 
 1. Open the Terminal application (Ex.:Tera term) on the computer
-2. Connect to the EDBG Virtual COM port and configure the serial settings as follows:
+2. Connect to the PKOB Virtual COM port and configure the serial settings as follows:
     - Baud : 115200
     - Data : 8 Bits
     - Parity : None
@@ -64,5 +64,5 @@ Below table shows the AC input pin and LED name for the board:
 
 | Board| AC input pin | LED name|
 |------|----------|---------|
-|[SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro) | AC-AIN0 (pin 14 of the EXT1 connector)| LED0 |
+|[PIC32CX SG41 Curiosity Ultra board](https://www.microchip.com/en-us/development-tool/EV06X38A) | AC-AIN0 (pin 04 of the J501 connector)| LED1 |
 |||
