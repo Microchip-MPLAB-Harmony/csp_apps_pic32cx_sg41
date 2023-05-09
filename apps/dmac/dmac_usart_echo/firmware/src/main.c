@@ -79,7 +79,7 @@ int main ( void )
     SYS_Initialize ( NULL );
     DMAC_ChannelCallbackRegister(DMAC_CHANNEL_0, TransmitCompleteCallback,0);
     DMAC_ChannelCallbackRegister(DMAC_CHANNEL_1, ReceiveCompleteCallback,0);
-    DMAC_ChannelTransfer(DMAC_CHANNEL_0, &messageStart, (const void *)&SERCOM2_REGS->USART_INT.SERCOM_DATA, sizeof(messageStart));
+    DMAC_ChannelTransfer(DMAC_CHANNEL_0, &messageStart, (const void *)&SERCOM4_REGS->USART_INT.SERCOM_DATA, sizeof(messageStart));
             
     while ( true )
     {
@@ -95,14 +95,14 @@ int main ( void )
             echoBuffer[sizeof(receiveBuffer)+1]='\n';
 
 
-            DMAC_ChannelTransfer(DMAC_CHANNEL_0, &echoBuffer, (const void *)&SERCOM2_REGS->USART_INT.SERCOM_DATA, sizeof(echoBuffer));
+            DMAC_ChannelTransfer(DMAC_CHANNEL_0, &echoBuffer, (const void *)&SERCOM4_REGS->USART_INT.SERCOM_DATA, sizeof(echoBuffer));
             LED_Toggle();
         }
         else if(writeStatus == true)
         {
             /* Submit buffer to read user data */
             writeStatus = false;
-            DMAC_ChannelTransfer(DMAC_CHANNEL_1, (const void *)&SERCOM2_REGS->USART_INT.SERCOM_DATA, &receiveBuffer, sizeof(receiveBuffer));            
+            DMAC_ChannelTransfer(DMAC_CHANNEL_1, (const void *)&SERCOM4_REGS->USART_INT.SERCOM_DATA, &receiveBuffer, sizeof(receiveBuffer));            
         }
         else
         {
