@@ -63,14 +63,14 @@
 // *****************************************************************************
 
 /* EIC Channel Callback object */
-static EIC_CALLBACK_OBJ    eicCallbackObject[EXTINT_COUNT];
+volatile static EIC_CALLBACK_OBJ    eicCallbackObject[EXTINT_COUNT];
 
 
 void EIC_Initialize (void)
 {
     /* Reset all registers in the EIC module to their initial state and
-	   EIC will be disabled. */
-    EIC_REGS->EIC_CTRLA |= (uint8_t)EIC_CTRLA_SWRST_Msk;
+       EIC will be disabled. */
+    EIC_REGS->EIC_CTRLA |= EIC_CTRLA_SWRST_Msk;
 
     while((EIC_REGS->EIC_SYNCBUSY & EIC_SYNCBUSY_SWRST_Msk) == EIC_SYNCBUSY_SWRST_Msk)
     {
@@ -82,35 +82,34 @@ void EIC_Initialize (void)
     /* NMI Control register */
 
     /* Interrupt sense type and filter control for EXTINT channels 0 to 7*/
-    EIC_REGS->EIC_CONFIG[0] =  EIC_CONFIG_SENSE0_NONE  |
-                              EIC_CONFIG_SENSE1_NONE  |
-                              EIC_CONFIG_SENSE2_NONE  |
-                              EIC_CONFIG_SENSE3_RISE  |
-                              EIC_CONFIG_SENSE4_NONE  |
-                              EIC_CONFIG_SENSE5_NONE  |
-                              EIC_CONFIG_SENSE6_NONE  |
-                              EIC_CONFIG_SENSE7_NONE  ;
+    EIC_REGS->EIC_CONFIG0 =  EIC_CONFIG0_SENSE0_RISE  |
+                              EIC_CONFIG0_SENSE1_NONE  |
+                              EIC_CONFIG0_SENSE2_NONE  |
+                              EIC_CONFIG0_SENSE3_NONE  |
+                              EIC_CONFIG0_SENSE4_NONE  |
+                              EIC_CONFIG0_SENSE5_NONE  |
+                              EIC_CONFIG0_SENSE6_NONE  |
+                              EIC_CONFIG0_SENSE7_NONE ;
 
     /* Interrupt sense type and filter control for EXTINT channels 8 to 15 */
-    EIC_REGS->EIC_CONFIG[1] =  EIC_CONFIG_SENSE0_NONE 
-         |  EIC_CONFIG_SENSE1_NONE  
-         |  EIC_CONFIG_SENSE2_NONE  
-         |  EIC_CONFIG_SENSE3_NONE  
-         |  EIC_CONFIG_SENSE4_NONE  
-         |  EIC_CONFIG_SENSE5_NONE  
-         |  EIC_CONFIG_SENSE6_NONE  
-         |  EIC_CONFIG_SENSE7_RISE   ;
-    
+    EIC_REGS->EIC_CONFIG1 =  EIC_CONFIG1_SENSE8_NONE  |
+                              EIC_CONFIG1_SENSE9_NONE  |
+                              EIC_CONFIG1_SENSE10_NONE  |
+                              EIC_CONFIG1_SENSE11_NONE  |
+                              EIC_CONFIG1_SENSE12_NONE  |
+                              EIC_CONFIG1_SENSE13_NONE  |
+                              EIC_CONFIG1_SENSE14_NONE  |
+                              EIC_CONFIG1_SENSE15_NONE ;
 
 
 
 
 
     /* External Interrupt enable*/
-    EIC_REGS->EIC_INTENSET = 0x8000U;
+    EIC_REGS->EIC_INTENSET = 0x1;
 
     /* Callbacks for enabled interrupts */
-    eicCallbackObject[0].eicPinNo = EIC_PIN_MAX;
+    eicCallbackObject[0].eicPinNo = EIC_PIN_0;
     eicCallbackObject[1].eicPinNo = EIC_PIN_MAX;
     eicCallbackObject[2].eicPinNo = EIC_PIN_MAX;
     eicCallbackObject[3].eicPinNo = EIC_PIN_MAX;
@@ -125,9 +124,9 @@ void EIC_Initialize (void)
     eicCallbackObject[12].eicPinNo = EIC_PIN_MAX;
     eicCallbackObject[13].eicPinNo = EIC_PIN_MAX;
     eicCallbackObject[14].eicPinNo = EIC_PIN_MAX;
-    eicCallbackObject[15].eicPinNo = EIC_PIN_15;
+    eicCallbackObject[15].eicPinNo = EIC_PIN_MAX;
     /* Enable the EIC */
-    EIC_REGS->EIC_CTRLA |= (uint8_t)EIC_CTRLA_ENABLE_Msk;
+    EIC_REGS->EIC_CTRLA |= EIC_CTRLA_ENABLE_Msk;
 
     while((EIC_REGS->EIC_SYNCBUSY & EIC_SYNCBUSY_ENABLE_Msk) == EIC_SYNCBUSY_ENABLE_Msk)
     {
@@ -137,12 +136,12 @@ void EIC_Initialize (void)
 
 void EIC_InterruptEnable (EIC_PIN pin)
 {
-    EIC_REGS->EIC_INTENSET = (1UL << (uint32_t)pin);
+    EIC_REGS->EIC_INTENSET = (1UL << pin);
 }
 
 void EIC_InterruptDisable (EIC_PIN pin)
 {
-    EIC_REGS->EIC_INTENCLR = (1UL << (uint32_t)pin);
+    EIC_REGS->EIC_INTENCLR = (1UL << pin);
 }
 
 void EIC_CallbackRegister(EIC_PIN pin, EIC_CALLBACK callback, uintptr_t context)
@@ -155,25 +154,15 @@ void EIC_CallbackRegister(EIC_PIN pin, EIC_CALLBACK callback, uintptr_t context)
     }
 }
 
-void EIC_EXTINT_3_InterruptHandler(void)
+void __attribute__((used)) EIC_EXTINT_0_InterruptHandler(void)
 {
     /* Clear interrupt flag */
-    EIC_REGS->EIC_INTFLAG = (1UL << 3);
+    EIC_REGS->EIC_INTFLAG = (1UL << 0);
     /* Find any associated callback entries in the callback table */
-    if ((eicCallbackObject[3].callback != NULL))
+    if ((eicCallbackObject[0].callback != NULL))
     {
-        eicCallbackObject[3].callback(eicCallbackObject[3].context);
-    }
-
-}
-void EIC_EXTINT_15_InterruptHandler(void)
-{
-    /* Clear interrupt flag */
-    EIC_REGS->EIC_INTFLAG = (1UL << 15);
-    /* Find any associated callback entries in the callback table */
-    if ((eicCallbackObject[15].callback != NULL))
-    {
-        eicCallbackObject[15].callback(eicCallbackObject[15].context);
+        uintptr_t context = eicCallbackObject[0].context;
+        eicCallbackObject[0].callback(context);
     }
 
 }

@@ -54,8 +54,8 @@
 
 static void EIC_User_Handler(uintptr_t context);
 
-#define LED_ON    LED_Clear
-#define LED_OFF   LED_Set
+#define LED_ON    LED1_Clear
+#define LED_OFF   LED1_Set
 
 // *****************************************************************************
 // *****************************************************************************
@@ -68,7 +68,7 @@ int main ( void )
     /* Initialize all modules */
     SYS_Initialize ( NULL );
     LED_OFF();
-    EIC_CallbackRegister(EIC_PIN_15,EIC_User_Handler, 0);
+    EIC_CallbackRegister(EIC_PIN_0,EIC_User_Handler, 0);
 
     while ( true )
     {
@@ -83,7 +83,7 @@ int main ( void )
 
 static void EIC_User_Handler(uintptr_t context)
 {
-    LED_Toggle();
+    LED1_Toggle();
 }
 /*******************************************************************************
  End of File
