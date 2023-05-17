@@ -51,9 +51,9 @@
 #include "definitions.h"                // SYS function prototypes
 #include <string.h>
 
-#define LED_ON                      LED_Clear
-#define LED_OFF                     LED_Set
-#define LED_TOGGLE                  LED_Toggle
+#define LED_ON                      LED1_Clear
+#define LED_OFF                     LED1_Set
+#define LED_TOGGLE                  LED1_Toggle
 
 // Define a constant array in Flash.
 // It must be aligned to block boundary and size has to be in multiple of blocks
