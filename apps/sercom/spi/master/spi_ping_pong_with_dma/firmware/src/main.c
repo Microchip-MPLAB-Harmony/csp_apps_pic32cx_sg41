@@ -54,8 +54,8 @@
 #include "string.h"
 
 /* Macro definitions */
-#define LED_On      LED_Clear
-#define LED_Off     LED_Set
+#define LED_On      LED1_Clear
+#define LED_Off     LED1_Set
 
 #define DMA_CHANNEL_RECEIVE         DMAC_CHANNEL_0
 #define DMA_CHANNEL_TRANSMIT        DMAC_CHANNEL_1
@@ -83,7 +83,7 @@ uint8_t rxPingBuffer[sizeof(txPingBuffer)];
 uint8_t txPongBuffer[] = "initial_dma_data_from_pong_buffer";
 uint8_t rxPongBuffer[sizeof(txPongBuffer)];
 
-volatile APP_STATES state = APP_STATE_INITIALIZE;
+static volatile APP_STATES state = APP_STATE_INITIALIZE;
 
 __attribute__((__aligned__(16))) static dmac_descriptor_registers_t pTxLinkedListDesc[2], pRxLinkedListDesc[2];
 
@@ -102,13 +102,13 @@ void APP_InitializeTxLinkedListDescriptor(void)
     pTxLinkedListDesc[0].DMAC_BTCTRL     = (uint16_t)PING_BUFEER0_TX_BTCTRL;
     pTxLinkedListDesc[0].DMAC_BTCNT      = (uint16_t)sizeof(txPingBuffer);
     pTxLinkedListDesc[0].DMAC_DESCADDR   = (uint32_t)&pTxLinkedListDesc[1];
-    pTxLinkedListDesc[0].DMAC_DSTADDR    = (uint32_t)&SERCOM6_REGS->SPIM.SERCOM_DATA;
+    pTxLinkedListDesc[0].DMAC_DSTADDR    = (uint32_t)&SERCOM0_REGS->SPIM.SERCOM_DATA;
     pTxLinkedListDesc[0].DMAC_SRCADDR    = (uint32_t)txPingBuffer + sizeof(txPingBuffer);
 
     pTxLinkedListDesc[1].DMAC_BTCTRL     = (uint16_t)PING_BUFEER1_TX_BTCTRL;
     pTxLinkedListDesc[1].DMAC_BTCNT      = (uint16_t)sizeof(txPongBuffer);
     pTxLinkedListDesc[1].DMAC_DESCADDR   = (uint32_t)&pTxLinkedListDesc[0];
-    pTxLinkedListDesc[1].DMAC_DSTADDR    = (uint32_t)&SERCOM6_REGS->SPIM.SERCOM_DATA;
+    pTxLinkedListDesc[1].DMAC_DSTADDR    = (uint32_t)&SERCOM0_REGS->SPIM.SERCOM_DATA;
     pTxLinkedListDesc[1].DMAC_SRCADDR    = (uint32_t)txPongBuffer + sizeof(txPingBuffer);
 }
 
@@ -117,13 +117,13 @@ void APP_InitializeRxLinkedListDescriptor(void)
     pRxLinkedListDesc[0].DMAC_BTCTRL     = (uint16_t)PING_BUFEER0_RX_BTCTRL;
     pRxLinkedListDesc[0].DMAC_BTCNT      = (uint16_t)sizeof(rxPingBuffer);
     pRxLinkedListDesc[0].DMAC_DESCADDR   = (uint32_t)&pRxLinkedListDesc[1];
-    pRxLinkedListDesc[0].DMAC_SRCADDR    = (uint32_t)&SERCOM6_REGS->SPIM.SERCOM_DATA;
+    pRxLinkedListDesc[0].DMAC_SRCADDR    = (uint32_t)&SERCOM0_REGS->SPIM.SERCOM_DATA;
     pRxLinkedListDesc[0].DMAC_DSTADDR    = (uint32_t)rxPingBuffer + sizeof(txPingBuffer);
 
     pRxLinkedListDesc[1].DMAC_BTCTRL     = (uint16_t)PING_BUFEER1_RX_BTCTRL;
     pRxLinkedListDesc[1].DMAC_BTCNT      = (uint16_t)sizeof(rxPongBuffer);
     pRxLinkedListDesc[1].DMAC_DESCADDR   = (uint32_t)&pRxLinkedListDesc[0];
-    pRxLinkedListDesc[1].DMAC_SRCADDR    = (uint32_t)&SERCOM6_REGS->SPIM.SERCOM_DATA;
+    pRxLinkedListDesc[1].DMAC_SRCADDR    = (uint32_t)&SERCOM0_REGS->SPIM.SERCOM_DATA;
     pRxLinkedListDesc[1].DMAC_DSTADDR    = (uint32_t)rxPongBuffer + sizeof(txPingBuffer);
 }
 
