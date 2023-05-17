@@ -54,8 +54,8 @@
 #include <string.h>
 
 /* Macro definitions */
-#define LED_On      LED_Clear
-#define LED_Off     LED_Set
+#define LED_On      LED1_Clear
+#define LED_Off     LED1_Set
 
 /* Global variables */
 uint8_t txData[]  = "SELF LOOPBACK DEMO FOR SPI!";
@@ -63,7 +63,7 @@ uint8_t rxData[sizeof(txData)];
 volatile bool transferStatus=false;
 
 /* This function will be called by SPI PLIB when transfer is completed */
-void SERCOM6_SPI_Callback(uintptr_t context )
+void SERCOM0_SPI_Callback(uintptr_t context )
 {
     transferStatus = true;
 }
@@ -80,10 +80,10 @@ int main ( void )
     SYS_Initialize ( NULL );
 
     /* Register callback function   */
-    SERCOM6_SPI_CallbackRegister(SERCOM6_SPI_Callback, 0);
+    SERCOM0_SPI_CallbackRegister(SERCOM0_SPI_Callback, 0);
    
     /* SPI Write Read */
-    SERCOM6_SPI_WriteRead(&txData[0], sizeof(txData), &rxData[0], sizeof(rxData));
+    SERCOM0_SPI_WriteRead(&txData[0], sizeof(txData), &rxData[0], sizeof(rxData));
 	
 	/* Busy wait on transfer status */
 	while(transferStatus != true);

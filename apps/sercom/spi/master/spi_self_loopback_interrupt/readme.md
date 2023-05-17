@@ -1,5 +1,5 @@
 ---
-parent: Harmony 3 peripheral library application examples for SAM D5X/E5X family
+parent: Harmony 3 peripheral library application examples for PIC32CX SG family
 title: SERCOM SPI interrupt 
 has_children: false
 has_toc: false
@@ -17,7 +17,7 @@ This example shows the transmit and receive operation over a SPI interface in a 
 
 ## Downloading and building the application
 
-To download or clone this application from Github, go to the [top level of the repository](https://github.com/Microchip-MPLAB-Harmony/csp_apps_sam_d5x_e5x) and click
+To download or clone this application from Github, go to the [top level of the repository](https://github.com/Microchip-MPLAB-Harmony/csp_apps_pic32cx_sg) and click
 
 ![clone](../../../../docs/images/clone.png)
 
@@ -27,7 +27,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| pic32cx_sg41_cult.X    | MPLABX Project for [SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro)|
+| pic32cx_sg41_cult.X    | MPLABX Project for [PIC32CX SG41 Curiosity Ultra Evaluation Board](https://www.microchip.com/en-us/development-tool/EV06X38A)|
 
 ## Setting up the hardware
 
@@ -35,12 +35,12 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| pic32cx_sg41_cult.X | [SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro)|
+| pic32cx_sg41_cult.X | [PIC32CX SG41 Curiosity Ultra Evaluation Board](https://www.microchip.com/en-us/development-tool/EV06X38A)|
 |||
 
-### Setting up [SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro)
+### Setting up [PIC32CX SG41 Curiosity Ultra Evaluation Board](https://www.microchip.com/en-us/development-tool/EV06X38A)
 
-- Use a jumper wire to short pin 16 and pin 17 of the EXT2 header
+- Use a jumper wire to short pin 16 and pin 17 of the EXT1 header
 - Connect the Debug USB port on the board to the computer using a micro USB cable
 
 ## Running the Application
@@ -55,5 +55,5 @@ Following table provides the LED name:
 
 | Board      | LED Name |
 | ---------- | ---------------- |
-| [SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro)    | LED0 |
+| [PIC32CX SG41 Curiosity Ultra Evaluation Board](https://www.microchip.com/en-us/development-tool/EV06X38A)    | LED1 |
 |||
