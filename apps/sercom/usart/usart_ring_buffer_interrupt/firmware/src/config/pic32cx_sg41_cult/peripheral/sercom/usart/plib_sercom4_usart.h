@@ -5,7 +5,7 @@
     Microchip Technology Inc.
 
   File Name
-    plib_sercom2_usart.h
+    plib_sercom4_usart.h
 
   Summary
     USART peripheral library interface.
@@ -42,8 +42,8 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
-#ifndef PLIB_SERCOM2_USART_H // Guards against multiple inclusion
-#define PLIB_SERCOM2_USART_H
+#ifndef PLIB_SERCOM4_USART_H // Guards against multiple inclusion
+#define PLIB_SERCOM4_USART_H
 
 // *****************************************************************************
 // *****************************************************************************
@@ -67,46 +67,50 @@
 // *****************************************************************************
 // *****************************************************************************
 
-void SERCOM2_USART_Initialize( void );
+void SERCOM4_USART_Initialize( void );
 
-bool SERCOM2_USART_SerialSetup( USART_SERIAL_SETUP * serialSetup, uint32_t clkFrequency );
+bool SERCOM4_USART_SerialSetup( USART_SERIAL_SETUP * serialSetup, uint32_t clkFrequency );
 
-USART_ERROR SERCOM2_USART_ErrorGet( void );
+void SERCOM4_USART_Enable( void );
 
-uint32_t SERCOM2_USART_FrequencyGet( void );
+void SERCOM4_USART_Disable( void );
 
+USART_ERROR SERCOM4_USART_ErrorGet( void );
 
-bool SERCOM2_USART_TransmitComplete( void );
-
-size_t SERCOM2_USART_Write(uint8_t* pWrBuffer, const size_t size );
-
-size_t SERCOM2_USART_WriteCountGet(void);
-
-size_t SERCOM2_USART_WriteFreeBufferCountGet(void);
-
-size_t SERCOM2_USART_WriteBufferSizeGet(void);
-
-bool SERCOM2_USART_WriteNotificationEnable(bool isEnabled, bool isPersistent);
-
-void SERCOM2_USART_WriteThresholdSet(uint32_t nBytesThreshold);
-
-void SERCOM2_USART_WriteCallbackRegister( SERCOM_USART_RING_BUFFER_CALLBACK callback, uintptr_t context);
+uint32_t SERCOM4_USART_FrequencyGet( void );
 
 
+bool SERCOM4_USART_TransmitComplete( void );
 
-size_t SERCOM2_USART_Read(uint8_t* pRdBuffer, const size_t size);
+size_t SERCOM4_USART_Write(uint8_t* pWrBuffer, const size_t size );
 
-size_t SERCOM2_USART_ReadCountGet(void);
+size_t SERCOM4_USART_WriteCountGet(void);
 
-size_t SERCOM2_USART_ReadFreeBufferCountGet(void);
+size_t SERCOM4_USART_WriteFreeBufferCountGet(void);
 
-size_t SERCOM2_USART_ReadBufferSizeGet(void);
+size_t SERCOM4_USART_WriteBufferSizeGet(void);
 
-bool SERCOM2_USART_ReadNotificationEnable(bool isEnabled, bool isPersistent);
+bool SERCOM4_USART_WriteNotificationEnable(bool isEnabled, bool isPersistent);
 
-void SERCOM2_USART_ReadThresholdSet(uint32_t nBytesThreshold);
+void SERCOM4_USART_WriteThresholdSet(uint32_t nBytesThreshold);
 
-void SERCOM2_USART_ReadCallbackRegister( SERCOM_USART_RING_BUFFER_CALLBACK callback, uintptr_t context);
+void SERCOM4_USART_WriteCallbackRegister( SERCOM_USART_RING_BUFFER_CALLBACK callback, uintptr_t context);
+
+
+
+size_t SERCOM4_USART_Read(uint8_t* pRdBuffer, const size_t size);
+
+size_t SERCOM4_USART_ReadCountGet(void);
+
+size_t SERCOM4_USART_ReadFreeBufferCountGet(void);
+
+size_t SERCOM4_USART_ReadBufferSizeGet(void);
+
+bool SERCOM4_USART_ReadNotificationEnable(bool isEnabled, bool isPersistent);
+
+void SERCOM4_USART_ReadThresholdSet(uint32_t nBytesThreshold);
+
+void SERCOM4_USART_ReadCallbackRegister( SERCOM_USART_RING_BUFFER_CALLBACK callback, uintptr_t context);
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
@@ -116,4 +120,4 @@ void SERCOM2_USART_ReadCallbackRegister( SERCOM_USART_RING_BUFFER_CALLBACK callb
 #endif
 // DOM-IGNORE-END
 
-#endif //PLIB_SERCOM2_USART_H
+#endif //PLIB_SERCOM4_USART_H
