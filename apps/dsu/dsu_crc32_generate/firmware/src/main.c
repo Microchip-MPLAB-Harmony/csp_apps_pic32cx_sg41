@@ -50,9 +50,9 @@
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "definitions.h"                // SYS function prototypes
 
-#define LED_ON                  LED_Clear
-#define LED_OFF                 LED_Set
-#define LED_TOGGLE              LED_Toggle
+#define LED_ON                  LED1_Clear
+#define LED_OFF                 LED1_Set
+#define LED_TOGGLE              LED1_Toggle
 
 #define CRC_DATA_LENGTH         2048
 #define CRC_SEED                0xFFFFFFFF
