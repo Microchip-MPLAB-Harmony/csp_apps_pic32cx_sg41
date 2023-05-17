@@ -56,7 +56,7 @@ void Timeout_Handler(RTC_TIMER32_INT_MASK intCause, uintptr_t context)
 {
     if(RTC_TIMER32_INT_MASK_CMP0  == (RTC_TIMER32_INT_MASK_CMP0 & intCause ))
     {
-        LED_Toggle();
+        LED1_Toggle();
     }    
 }
 
