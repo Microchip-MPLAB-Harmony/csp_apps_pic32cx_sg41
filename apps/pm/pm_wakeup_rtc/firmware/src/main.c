@@ -50,8 +50,8 @@
 #include <stdbool.h>                    // Defines true
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "definitions.h"                // SYS function prototypes
-#define LED_ON LED_Clear
-#define LED_OFF LED_Set
+#define LED_ON          LED1_Clear
+#define LED_OFF         LED1_Set
 
 enum
 {
@@ -69,9 +69,9 @@ uint8_t cmd = 0;
 // Section: Application Callback Functions
 // *****************************************************************************
 // *****************************************************************************
-void timeout (uintptr_t context)
+static void timeout (uintptr_t context)
 {
-    LED_Toggle();    
+    LED1_Toggle();    
 }
 
 void configure_alarm(void)

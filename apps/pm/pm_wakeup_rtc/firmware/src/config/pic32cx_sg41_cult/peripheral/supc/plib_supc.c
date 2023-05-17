@@ -61,16 +61,12 @@
 void SUPC_Initialize( void )
 {
     /* Configure VREF */
-    SUPC_REGS->SUPC_VREF = SUPC_VREF_SEL(0x0U);
+    SUPC_REGS->SUPC_VREF = SUPC_VREF_SEL(0x6U);
 
     /* Configure VREG. Mask the values loaded from NVM during reset.*/
     SUPC_REGS->SUPC_VREG = (SUPC_REGS->SUPC_VREG & (SUPC_VREG_SEL_Msk | SUPC_VREG_ENABLE_Msk)) | SUPC_VREG_VSPER(0U) ;
 }
 
-void SUPC_SelectTempSenorChannel( SUPC_TSSEL sensor )
-{
-    SUPC_REGS->SUPC_VREF = (SUPC_REGS->SUPC_VREF & (~SUPC_VREF_TSSEL_Msk)) | ((uint32_t)sensor << SUPC_VREF_TSSEL_Pos);
-}
 
 void SUPC_SetOutputPin( SUPC_OUTPIN pin )
 {

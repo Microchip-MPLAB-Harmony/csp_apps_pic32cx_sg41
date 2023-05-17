@@ -51,7 +51,7 @@
 #include "plib_nvmctrl.h"
 #include "interrupts.h"
 
-static volatile uint16_t nvm_error;
+volatile static uint16_t nvm_error;
 
 // *****************************************************************************
 // *****************************************************************************
@@ -63,13 +63,13 @@ static volatile uint16_t nvm_error;
 
 void NVMCTRL_Initialize(void)
 {
-   NVMCTRL_REGS->NVMCTRL_CTRLA = NVMCTRL_CTRLA_PRM(1U) | NVMCTRL_CTRLA_CACHEDIS0_Msk | NVMCTRL_CTRLA_CACHEDIS1_Msk | NVMCTRL_CTRLA_RWS(1U) | NVMCTRL_CTRLA_AUTOWS_Msk;
+   NVMCTRL_REGS->NVMCTRL_CTRLA = NVMCTRL_CTRLA_PRM(1U) | NVMCTRL_CTRLA_CACHEDIS0_Msk | NVMCTRL_CTRLA_CACHEDIS1_Msk | NVMCTRL_CTRLA_RWS(5U) | NVMCTRL_CTRLA_AUTOWS_Msk;
 }
 
 bool NVMCTRL_Read( uint32_t *data, uint32_t length, const uint32_t address )
 {
-    (void)memcpy((void *)data, (void *)address, length);
-
+    uint32_t* paddress = (uint32_t*)address;
+    (void)memcpy(data, paddress, length);
     return true;
 }
 
@@ -80,7 +80,7 @@ void NVMCTRL_SetWriteMode(NVMCTRL_WRITEMODE mode)
 
 bool NVMCTRL_QuadWordWrite(const uint32_t *data, const uint32_t address)
 {
-    uint8_t i = 0U;
+    uint8_t i;
     bool wr_status = false;
     uint32_t * paddress = (uint32_t *)address;
     uint16_t wr_mode = (NVMCTRL_REGS->NVMCTRL_CTRLA & NVMCTRL_CTRLA_WMODE_Msk);
@@ -113,7 +113,7 @@ bool NVMCTRL_QuadWordWrite(const uint32_t *data, const uint32_t address)
 
 bool NVMCTRL_DoubleWordWrite(const uint32_t *data, const uint32_t address)
 {
-    uint8_t i = 0U;
+    uint8_t i;
     bool wr_status = false;
     uint32_t * paddress = (uint32_t *)address;
     uint16_t wr_mode = (NVMCTRL_REGS->NVMCTRL_CTRLA & NVMCTRL_CTRLA_WMODE_Msk);
@@ -150,7 +150,7 @@ bool NVMCTRL_DoubleWordWrite(const uint32_t *data, const uint32_t address)
  */
 bool NVMCTRL_PageBufferWrite( const uint32_t *data, const uint32_t address)
 {
-    uint32_t i = 0U;
+    uint32_t i;
     uint32_t * paddress = (uint32_t *)address;
 
     /* Clear global error flag */
@@ -190,7 +190,7 @@ bool NVMCTRL_PageBufferCommit(  const uint32_t address )
  */
 bool NVMCTRL_PageWrite( const uint32_t *data, const uint32_t address )
 {
-    uint32_t i = 0U;
+    uint32_t i;
     uint32_t * paddress = (uint32_t *)address;
 
     /* Clear global error flag */
@@ -227,8 +227,8 @@ bool NVMCTRL_BlockErase( uint32_t address )
 
 bool NVMCTRL_USER_ROW_PageWrite( uint32_t *data, const uint32_t address )
 {
-    uint32_t i = 0U;
-    uint32_t wr_count = 0U;
+    uint32_t i;
+    uint32_t wr_count;
     uint32_t * paddress = (uint32_t *)address;
     uint32_t * pdata = data;
     bool rowwrite = false;
@@ -370,13 +370,6 @@ void NVMCTRL_SmartEEPROMSectorReallocate(void)
     NVMCTRL_REGS->NVMCTRL_CTRLB = NVMCTRL_CTRLB_CMD_SEERALOC | NVMCTRL_CTRLB_CMDEX_KEY;
 }
 
-void NVMCTRL_SmartEEPROMFlushPageBuffer(void)
-{
-    /* Clear global error flag */
-    nvm_error = 0U;
-
-    NVMCTRL_REGS->NVMCTRL_CTRLB = NVMCTRL_CTRLB_CMD_SEEFLUSH | NVMCTRL_CTRLB_CMDEX_KEY;
-}
 
 
 
