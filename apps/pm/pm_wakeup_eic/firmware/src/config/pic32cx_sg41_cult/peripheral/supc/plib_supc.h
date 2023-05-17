@@ -73,11 +73,6 @@ typedef enum
     SUPC_OUTPIN_OUT1 = 1
 }SUPC_OUTPIN;
 
-typedef enum
-{
-    SUPC_TSSEL_PTAT = 0,
-    SUPC_TSSEL_CTAT = 1
-}SUPC_TSSEL;
 
 typedef enum
 {
@@ -87,7 +82,6 @@ typedef enum
 
 void SUPC_SelectVoltageRegulator(SUPC_VREGSEL regsel);
 
-void SUPC_SelectTempSenorChannel( SUPC_TSSEL sensor );
 
 void SUPC_SetOutputPin( SUPC_OUTPIN pin );
 

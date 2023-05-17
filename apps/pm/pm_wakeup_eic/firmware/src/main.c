@@ -53,8 +53,8 @@
 #include "definitions.h"                // SYS function prototypes
 
 
-#define LED_ON LED_Clear
-#define LED_OFF LED_Set
+#define LED_ON      LED1_Clear
+#define LED_OFF     LED1_Set
 
 // *****************************************************************************
 // *****************************************************************************
@@ -71,9 +71,9 @@ enum
 
 uint8_t cmd = 0;
 
-void timeout (uintptr_t context)
+static void timeout (uintptr_t context)
 {
-    LED_Toggle();    
+    LED1_Toggle();    
 }
 
 void display_menu (void)
@@ -127,7 +127,7 @@ int main ( void )
             case IDLE_SLEEP_MODE:
             {
                 printf("\n\rEntering IDLE SLEEP Mode");
-                printf("\n\rPress SW0 to wakeup the device"); 
+                printf("\n\rPress SW1 to wakeup the device"); 
                 SYSTICK_TimerStop();
                 LED_OFF();
                 PM_IdleModeEnter();
@@ -139,7 +139,7 @@ int main ( void )
             case STANDBY_SLEEP_MODE:
             {
                 printf("\n\rEntering STANDBY SLEEP Mode");
-                printf("\n\rPress SW0 to wakeup the device");   
+                printf("\n\rPress SW1 to wakeup the device");   
                 SYSTICK_DelayUs(1000);
                 SYSTICK_TimerStop();
                 LED_OFF();
