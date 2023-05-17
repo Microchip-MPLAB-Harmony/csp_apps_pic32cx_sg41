@@ -52,7 +52,7 @@
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "definitions.h"                // SYS function prototypes
 
-#define SWITCH_PRESSED_STATE        0   // Active LOW switch
+#define SWITCH1_PRESSED_STATE        0   // Active LOW switch
 // *****************************************************************************
 // *****************************************************************************
 // Section: Main Entry Point
@@ -66,15 +66,15 @@ int main ( void )
 
     while ( true )
     {
-        if(SWITCH_Get() == SWITCH_PRESSED_STATE)
+        if(SWITCH1_Get() == SWITCH1_PRESSED_STATE)
         {
             /* Turn ON LED */
-            LED_Clear();
+            LED1_Clear();
         }
         else
         {
             /* Turn OFF LED */
-            LED_Set();
+            LED1_Set();
         }
     }
 
