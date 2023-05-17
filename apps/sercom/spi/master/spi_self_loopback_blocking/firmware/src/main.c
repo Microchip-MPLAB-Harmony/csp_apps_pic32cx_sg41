@@ -54,8 +54,8 @@
 #include <string.h>
 
 /* Macro definitions */
-#define LED_On      LED_Clear
-#define LED_Off     LED_Set
+#define LED_On      LED1_Clear
+#define LED_Off     LED1_Set
 
 // *****************************************************************************
 // *****************************************************************************
@@ -71,7 +71,7 @@ int main ( void )
     SYS_Initialize ( NULL );
                
     /* SPI Write Read */
-    SERCOM6_SPI_WriteRead(&txData[0], sizeof(txData), &rxData[0], sizeof(rxData));
+    SERCOM0_SPI_WriteRead(&txData[0], sizeof(txData), &rxData[0], sizeof(rxData));
 
     /* Compare received data with the transmitted data */
     if ((memcmp(txData, rxData, sizeof(txData)) == 0))
