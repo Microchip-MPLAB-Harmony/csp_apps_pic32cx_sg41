@@ -1,5 +1,5 @@
 ---
-parent: Harmony 3 peripheral library application examples for SAM D5X/E5X family
+parent: Harmony 3 peripheral library application examples for PIC32CX SG family
 title: SERCOM USART interrupt 
 has_children: false
 has_toc: false
@@ -17,7 +17,7 @@ This example shows the read and write operation over a UART in a non-blocking ma
 
 ## Downloading and building the application
 
-To clone or download this application from Github, go to the [main page of this repository](https://github.com/Microchip-MPLAB-Harmony/csp_apps_sam_d5x_e5x) and then click **Clone** button to clone this repository or download as zip file.
+To clone or download this application from Github, go to the [main page of this repository](https://github.com/Microchip-MPLAB-Harmony/csp_apps_pic32cx_sg) and then click **Clone** button to clone this repository or download as zip file.
 This content can also be downloaded using content manager by following these [instructions](https://github.com/Microchip-MPLAB-Harmony/contentmanager/wiki).
 
 Path of the application within the repository is **apps/sercom/usart/usart_echo_interrupt/firmware** .
@@ -26,9 +26,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| pic32cx_sg41_cult.X    | MPLABX Project for [SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro)|
-| pic32cx_sg41_cult_iar.IAR/usart_echo_interrupt_pic32cx_sg41_cult.eww    | IAR Project for [SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro)|
-| pic32cx_sg41_cult_keil.KEIL/usart_echo_interrupt_pic32cx_sg41_cult_keil.uvprojx    | KEIL uVision Project for [SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro)|
+| pic32cx_sg41_cult.X    | MPLABX Project for [PIC32CX SG41 Curiosity Ultra Evaluation Board](https://www.microchip.com/en-us/development-tool/EV06X38A)|
 |||
 
 ## Setting up the hardware
@@ -37,10 +35,10 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| pic32cx_sg41_cult.X <br> pic32cx_sg41_cult_iar.IAR/usart_echo_interrupt_pic32cx_sg41_cult.eww <br> pic32cx_sg41_cult_keil.KEIL/usart_echo_interrupt_pic32cx_sg41_cult_keil.uvprojx  | [SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro)|
+| pic32cx_sg41_cult.X | [PIC32CX SG41 Curiosity Ultra Evaluation Board](https://www.microchip.com/en-us/development-tool/EV06X38A)|
 |||
 
-### Setting up [SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro)
+### Setting up [PIC32CX SG41 Curiosity Ultra Evaluation Board](https://www.microchip.com/en-us/development-tool/EV06X38A)
 
 - Connect the Debug USB port on the board to the computer using a micro USB cable
 
@@ -64,5 +62,5 @@ The following table shows the target hardware for the application projects.
 
 | Board      | LED Name                                    |
 | ----------------- | ---------------------------------------------- |
-| [SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro)    |LED0 |
+| [PIC32CX SG41 Curiosity Ultra Evaluation Board](https://www.microchip.com/en-us/development-tool/EV06X38A)   |LED1 |
 |||
