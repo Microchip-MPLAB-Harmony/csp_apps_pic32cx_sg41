@@ -1,0 +1,83 @@
+{
+	"metaDataVersion": "1.0.0",
+	"category": "com.microchip.ide.project",
+	"content": {
+		"metaDataVersion": "1.1.0",
+		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32cx_sg41_usart_ring_buffer_interrupt",
+		"version": "3.2.0",
+		"displayName": "SERCOM USART ring buffer Example for PIC32CX SG Family",
+		"projectName": "usart_ring_buffer_interrupt_pic32cx_sg41_cult",
+		"shortDescription": "This example application demonstrates how to use the SERCOM peripheral in USART ring buffer mode to transfer data in a non-blocking manner.",
+		"ide": {
+			"name": "MPLABX",
+			"semverRange": ">=6.0.0"
+		},
+		"compiler": [
+			{
+				"name": "XC32",
+				"semverRange": ">=4.1.0"
+			}
+		],
+		"dfp": {
+			"name": "CMSIS",
+			"semverRange": "^5.4.0"
+		},
+		"configurator": {
+			"name": "MHC",
+			"semverRange": ">=3.8.5"
+		},
+		"device": {
+			"metaDataVersion": "1.0.0",
+			"category": "com.microchip.portal.contentRef",
+			"content": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.device",
+				"name": "PIC32CX1025SG41128",
+				"versionRange": "*"
+			}
+		},
+		"author": "Microchip",
+		"subcategories": [
+			[
+				"Development Kit",
+				"PIC32CX SG41 Curiosity Ultra"
+			],
+			[
+				"Harmony",
+				"Peripherals",
+				"SERCOM"
+			],
+			[
+				"Peripherals",
+				"SERCOM"
+			]
+		],
+		"peripherals": [
+			"SERCOM"
+		],
+		"keywords": [
+			"MHC",
+			"Harmony",
+			"PIC32CX1025SG41128",
+			"PIC32CX SG Family",
+			"FLEXCOM",
+			"Serial Communication",
+			"I2C",
+			"SPI",
+			"UART",
+			"SERCOM",
+			"TWI"
+		],
+		"additionalData": {
+			"longDescription": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.portal.fileRef",
+				"content": {
+					"metaDataVersion": "1.0.0",
+					"fileName": "./../../readme.md",
+					"mimeType": "text/markdown"
+				}
+			}
+		}
+	}
+}

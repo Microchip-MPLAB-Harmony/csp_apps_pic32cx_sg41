@@ -1,0 +1,15 @@
+package:
+  format-version: "1.0.0"
+  name: "csp_apps_pic32cx_sg41"
+  version: "dev"
+  type: "application"
+  status: "production"
+  required: false
+
+  dependencies:
+    - name: "csp"
+      type: "package"
+      version: "dev"
+    - name: "dev_packs"
+      type: "package"
+      version: "dev"

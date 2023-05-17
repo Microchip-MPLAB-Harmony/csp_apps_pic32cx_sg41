@@ -1,0 +1,80 @@
+{
+	"metaDataVersion": "1.0.0",
+	"category": "com.microchip.ide.project",
+	"content": {
+		"metaDataVersion": "1.1.0",
+		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32cx_sg41_eic_led_on_off",
+		"version": "3.2.0",
+		"displayName": "EIC Interrupt Example for PIC32CX SG Family",
+		"projectName": "eic_led_on_off_pic32cx_sg41_cult",
+		"shortDescription": "This example application demonstrates how to generate interrupt using the EIC on switch press and indicate it through an LED.",
+		"ide": {
+			"name": "MPLABX",
+			"semverRange": ">=6.0.0"
+		},
+		"compiler": [
+			{
+				"name": "XC32",
+				"semverRange": ">=4.1.0"
+			}
+		],
+		"dfp": {
+			"name": "PIC32CX-SG41_DFP",
+			"semverRange": "^1.0.17"
+		},
+		"configurator": {
+			"name": "MHC",
+			"semverRange": ">=3.8.5"
+		},
+		"device": {
+			"metaDataVersion": "1.0.0",
+			"category": "com.microchip.portal.contentRef",
+			"content": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.device",
+				"name": "PIC32CX1025SG41128",
+				"versionRange": "*"
+			}
+		},
+		"author": "Microchip",
+		"subcategories": [
+			[
+				"Development Kit",
+				"PIC32CX SG41 Curiosity Ultra"
+			],
+			[
+				"Harmony",
+				"Peripherals",
+				"EIC"
+			],
+			[
+				"Peripherals",
+				"EIC"
+			]
+		],
+		"peripherals": [
+			"EIC"
+		],
+		"keywords": [
+			"MHC",
+			"Harmony",
+			"PIC32CX1025SG41128",
+			"PIC32CX SG Family",
+			"EIC",
+			"Interrupts",
+			"Interrupt Controller",
+			"External Interrupt Controller"
+		],
+		"additionalData": {
+			"longDescription": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.portal.fileRef",
+				"content": {
+					"metaDataVersion": "1.0.0",
+					"fileName": "./../../readme.md",
+					"mimeType": "text/markdown"
+				}
+			}
+		}
+	}
+}

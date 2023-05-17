@@ -24,7 +24,7 @@ transmitted will also be received.
 
 ## Downloading and building the application
 
-To download or clone this application from Github, go to the [top level of the repository](https://github.com/Microchip-MPLAB-Harmony/csp_apps_pic32cx_sg) and click
+To download or clone this application from Github, go to the [top level of the repository](https://github.com/Microchip-MPLAB-Harmony/csp_apps_pic32cx_sg41) and click
 
 ![clone](../../../../docs/images/clone.png)
 
