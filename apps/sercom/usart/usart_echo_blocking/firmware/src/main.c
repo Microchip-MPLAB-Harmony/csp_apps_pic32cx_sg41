@@ -53,8 +53,8 @@
 #include "definitions.h"                // SYS function prototypes
 
 #define RX_BUFFER_SIZE 256
-#define LED_ON    LED_Clear
-#define LED_OFF   LED_Set
+#define LED_ON    LED1_Clear
+#define LED_OFF   LED1_Set
 
 
 char messageStart[] = "**** USART Line Echo Demo: Blocking Transfer without the interrupt ****\r\n\
@@ -63,7 +63,7 @@ char messageStart[] = "**** USART Line Echo Demo: Blocking Transfer without the 
 char newline[] = "\r\n";
 char errorMessage[] = "\r\n**** USART error has occurred ****\r\n";
 char receiveBuffer[RX_BUFFER_SIZE] = {};
-char data = 0;
+static char data = 0;
 
 // *****************************************************************************
 // *****************************************************************************
@@ -79,24 +79,24 @@ int main ( void )
     SYS_Initialize ( NULL );
 
     /* Send start message */
-    SERCOM2_USART_Write(&messageStart[0], sizeof(messageStart));
+    SERCOM4_USART_Write(&messageStart[0], sizeof(messageStart));
     
     while ( true )
     {
         /* Check if there is a received character */
-        if(SERCOM2_USART_ReceiverIsReady() == true)
+        if(SERCOM4_USART_ReceiverIsReady() == true)
         {
-            if(SERCOM2_USART_ErrorGet() == USART_ERROR_NONE)
+            if(SERCOM4_USART_ErrorGet() == USART_ERROR_NONE)
             {
-                SERCOM2_USART_Read(&data, 1);
+                SERCOM4_USART_Read(&data, 1);
 
                 if((data == '\n') || (data == '\r'))
                 {
-                    SERCOM2_USART_Write(&newline[0],sizeof(newline));
-                    SERCOM2_USART_Write(&receiveBuffer[0],rxCounter);
-                    SERCOM2_USART_Write(&newline[0],sizeof(newline));
+                    SERCOM4_USART_Write(&newline[0],sizeof(newline));
+                    SERCOM4_USART_Write(&receiveBuffer[0],rxCounter);
+                    SERCOM4_USART_Write(&newline[0],sizeof(newline));
                     rxCounter = 0;
-                    LED_Toggle();
+                    LED1_Toggle();
                 }
                 else
                 {
@@ -105,7 +105,7 @@ int main ( void )
             }
             else
             {
-                SERCOM2_USART_Write(&errorMessage[0],sizeof(errorMessage));
+                SERCOM4_USART_Write(&errorMessage[0],sizeof(errorMessage));
             }
         }
     }
