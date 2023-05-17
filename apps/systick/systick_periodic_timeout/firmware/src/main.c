@@ -54,7 +54,7 @@
 
 void timeout_handler(uintptr_t context)
 {
-	LED_Toggle();
+	LED1_Toggle();
 }
 
 // *****************************************************************************
