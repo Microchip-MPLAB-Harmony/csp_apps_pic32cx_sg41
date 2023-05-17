@@ -62,7 +62,7 @@
 void TC0_Callback_InterruptHandler(TC_TIMER_STATUS status, uintptr_t context)
 {
     /* Toggle LED */
-    LED_Toggle();
+    LED1_Toggle();
 }
 
 // *****************************************************************************

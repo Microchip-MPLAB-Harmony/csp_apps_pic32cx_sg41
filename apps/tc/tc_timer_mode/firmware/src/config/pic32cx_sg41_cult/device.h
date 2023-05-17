@@ -57,7 +57,7 @@
 #ifndef DONT_USE_PREDEFINED_PERIPHERALS_HANDLERS
     #define DONT_USE_PREDEFINED_PERIPHERALS_HANDLERS
 #endif //DONT_USE_PREDEFINED_PERIPHERALS_HANDLERS
-#include "PIC32CX1025SG41128.h"
+#include "pic32cx1025sg41128.h"
 #pragma GCC diagnostic pop
 #include "device_cache.h"
 #include "toolchain_specifics.h"
