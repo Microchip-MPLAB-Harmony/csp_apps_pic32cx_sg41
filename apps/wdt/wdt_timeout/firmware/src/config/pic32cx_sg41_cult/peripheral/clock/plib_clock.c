@@ -134,6 +134,9 @@ static void GCLK2_Initialize(void)
 
 void CLOCK_Initialize (void)
 {
+    /* MISRAC 2012 deviation block start */
+    /* MISRA C-2012 Rule 2.2 deviated in this file.  Deviation record ID - H3_MISRAC_2012_R_2_2_DR_2 */
+
     /* Function to Initialize the Oscillators */
     OSCCTRL_Initialize();
 
@@ -146,7 +149,7 @@ void CLOCK_Initialize (void)
     GCLK0_Initialize();
     GCLK1_Initialize();
 
-
+    /* MISRAC 2012 deviation block end */
 
     /* Selection of the Generator and write Lock for EIC */
     GCLK_REGS->GCLK_PCHCTRL[4] = GCLK_PCHCTRL_GEN(0x1U)  | GCLK_PCHCTRL_CHEN_Msk;
@@ -155,10 +158,10 @@ void CLOCK_Initialize (void)
     {
         /* Wait for synchronization */
     }
-    /* Selection of the Generator and write Lock for SERCOM2_CORE */
-    GCLK_REGS->GCLK_PCHCTRL[23] = GCLK_PCHCTRL_GEN(0x1U)  | GCLK_PCHCTRL_CHEN_Msk;
+    /* Selection of the Generator and write Lock for SERCOM4_CORE */
+    GCLK_REGS->GCLK_PCHCTRL[34] = GCLK_PCHCTRL_GEN(0x1U)  | GCLK_PCHCTRL_CHEN_Msk;
 
-    while ((GCLK_REGS->GCLK_PCHCTRL[23] & GCLK_PCHCTRL_CHEN_Msk) != GCLK_PCHCTRL_CHEN_Msk)
+    while ((GCLK_REGS->GCLK_PCHCTRL[34] & GCLK_PCHCTRL_CHEN_Msk) != GCLK_PCHCTRL_CHEN_Msk)
     {
         /* Wait for synchronization */
     }
@@ -169,8 +172,8 @@ void CLOCK_Initialize (void)
     /* Configure the APBA Bridge Clocks */
     MCLK_REGS->MCLK_APBAMASK = 0x7ffU;
 
-    /* Configure the APBB Bridge Clocks */
-    MCLK_REGS->MCLK_APBBMASK = 0x18256U;
+    /* Configure the APBD Bridge Clocks */
+    MCLK_REGS->MCLK_APBDMASK = 0x1U;
 
 
 }
