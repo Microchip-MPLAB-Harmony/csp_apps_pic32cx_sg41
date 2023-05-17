@@ -1,5 +1,5 @@
 ---
-parent: Harmony 3 peripheral library application examples for SAM D5X/E5X family
+parent: Harmony 3 peripheral library application examples for PIC32CX SG family
 title: ADC window sleepwalking 
 has_children: false
 has_toc: false
@@ -16,14 +16,9 @@ This application shows how to configure ADC in a sleepwalking operation, where i
 This example application shows how to use the ADC Peripheral library to perform sleepwalking.
 The ADC peripheral is configured to operate in window mode. The ADC conversion is triggered by RTC compare 0 event. On every trigger, window detection operation is performed in standby sleep. The window interrupt is generated when the input voltage falls below the window upper threshold and the CPU is woken up by this interrupt.
 
-| Board | ADC window upper threshold |
-| ----- | -------------------------- |
-| [SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro) | 0.825 V |
-|||
-
 ## Downloading and building the application
 
-To clone or download this application from Github, go to the [main page of this repository](https://github.com/Microchip-MPLAB-Harmony/csp_apps_sam_d5x_e5x) and then click **Clone** button to clone this repository or download as zip file.
+To clone or download this application from Github, go to the [main page of this repository](https://github.com/Microchip-MPLAB-Harmony/csp_apps_pic32cx_sg41) and then click **Clone** button to clone this repository or download as zip file.
 This content can also be downloaded using content manager by following these [instructions](https://github.com/Microchip-MPLAB-Harmony/contentmanager/wiki).
 
 Path of the application within the repository is **apps/adc/adc_window_sleepwalking/firmware** .
@@ -32,7 +27,7 @@ To build the application, refer to the following table and open the project usin
 
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
-| pic32cx_sg41_cult.X    | MPLABX Project for [SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro)|
+| pic32cx_sg41_cult.X    | MPLABX Project for [PIC32CX SG41 Curiosity Ultra board](https://www.microchip.com/en-us/development-tool/EV06X38A)|
 |||
 
 ## Setting up the hardware
@@ -41,12 +36,12 @@ The following table shows the target hardware for the application projects.
 
 | Project Name| Board|
 |:---------|:---------:|
-| pic32cx_sg41_cult.X    | [SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro)|
+| pic32cx_sg41_cult.X    | [PIC32CX SG41 Curiosity Ultra board](https://www.microchip.com/en-us/development-tool/EV06X38A)|
 |||
 
-### Setting up [SAM E54 Xplained Pro board](https://www.microchip.com/developmenttools/ProductDetails/atsame54-xpro)
+### Setting up [PIC32CX SG41 Curiosity Ultra board](https://www.microchip.com/en-us/development-tool/EV06X38A)
 
-- Connect a voltage below the selected ADC reference voltage (VDDANA) to pin 4 (PA03 - ADC0/AIN[1]) of EXT2 connector
+- Connect a voltage below the selected ADC reference voltage (VDDANA) to pin 3 (PA03 - ADC0/AIN[2]) of EXT1 connector
 - Connect the Debug USB port on the board to the computer using a micro USB cable
 
 ## Running the Application
