@@ -1,13 +1,14 @@
-configName: pic32cx_sg41_cult
-folderName: ''
 format_version: v1.0
-frameworkPath: ../../../..
+configName: pic32cx_sg41_cult
+folderName: pic32cx_sg41_cult
+frameworkPath: C:\microchip\harmony\h3
 processor: PIC32CX1025SG41128
-projectName: ''
+projectName: pic32cx_sg41_cult
 settings:
-  PackageFilter: bootloader;bsp;core;csp;csp_apps_pic32cm_mc00;csp_apps_pic32mk;csp_apps_pic32mx;csp_apps_pic32mz_da;csp_apps_pic32mz_ef;csp_apps_sam_d5x_e5x;csp_apps_sam_e70_s70_v70_v71;csp_apps_sam_g55;csp_apps_sam_rh71;
+  PackageFilter: ''
   FORCE_OPTIMIZATION: 'false'
   GENERATE_BACKUP: 'true'
-  CMSISPath: .\dev_packs\arm\CMSIS\5.8.0
+  TRUSTZONE: 'false'
+  CMSISPath: dev_packs\arm\CMSIS\5.8.0
   MERGE_STRATEGY: USER_ALL
-  DFPPath: .\dev_packs\Microchip\PIC32CX-SG41_DFP\3.3.64\atdf\PIC32CX1025SG41128.atdf
+  DFPPath: dev_packs\Microchip\PIC32CX-SG41_DFP\1.1.122\atdf\PIC32CX1025SG41128.atdf
