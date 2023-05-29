@@ -3,11 +3,11 @@
 	"category": "com.microchip.ide.project",
 	"content": {
 		"metaDataVersion": "1.1.0",
-		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32cx_sg41_adc_window_sleepwalking",
+		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32cx_sg41_ac_sleepwalk_singleshot",
 		"version": "3.0.0",
-		"displayName": "ADC window sleepwalking Example for PIC32CX SG Family",
-		"projectName": "adc_window_sleepwalking_pic32cx_sg41_cult",
-		"shortDescription": "This application shows how to configure ADC in a sleepwalking operation, where input voltage is measured at a fixed interval, but device is not woken from sleep until the measured value is below a given threshold.",
+		"displayName": "AC Sleepwalking Example for PIC32CX SG Family",
+		"projectName": "ac_sleepwalk_singleshot_pic32cx_sg41_cult",
+		"shortDescription": "This example application shows how to use the AC Peripheral library to perform a single shot comparison in standby sleep mode periodically and wake up the device when the comparator output toggles.",
 		"ide": {
 			"name": "MPLABX",
 			"semverRange": ">=6.05.0"
@@ -45,24 +45,25 @@
 			[
 				"Harmony",
 				"Peripherals",
-				"ADC"
+				"AC"
 			],
 			[
 				"Peripherals",
-				"ADC"
+				"AC"
 			]
 		],
 		"peripherals": [
-			"ADC"
+			"AC"
 		],
 		"keywords": [
-			"MHC",
+			"MCC",
 			"Harmony",
 			"PIC32CX1025SG41128",
 			"PIC32CX SG Family",
 			"AC voltage",
-			"Analog to Digital Converter",
-			"ADC",
+			"AC",
+			"Analog Comparator",
+			"Comparator",
 			"Analog"
 		],
 		"additionalData": {
