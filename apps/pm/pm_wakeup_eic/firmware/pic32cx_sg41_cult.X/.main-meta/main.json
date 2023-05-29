@@ -4,27 +4,27 @@
 	"content": {
 		"metaDataVersion": "1.1.0",
 		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32cx_sg41_pm_wakeup_eic",
-		"version": "3.2.0",
+		"version": "3.0.0",
 		"displayName": "PM wakeup using EIC Example for PIC32CX SG Family",
 		"projectName": "pm_wakeup_eic_pic32cx_sg41_cult",
 		"shortDescription": "This application demonstrates entering the low power modes and exiting it using the EIC.",
 		"ide": {
 			"name": "MPLABX",
-			"semverRange": ">=6.0.0"
+			"semverRange": ">=6.5.0"
 		},
 		"compiler": [
 			{
 				"name": "XC32",
-				"semverRange": ">=4.1.0"
+				"semverRange": ">=4.21.0"
 			}
 		],
 		"dfp": {
-			"name": "CMSIS",
-			"semverRange": "^5.4.0"
+			"name": "PIC32CX-SG41_DFP",
+			"semverRange": "^1.0.17"
 		},
 		"configurator": {
-			"name": "MHC",
-			"semverRange": ">=3.8.5"
+			"name": "MCC",
+			"semverRange": ">=5.3.0"
 		},
 		"device": {
 			"metaDataVersion": "1.0.0",
