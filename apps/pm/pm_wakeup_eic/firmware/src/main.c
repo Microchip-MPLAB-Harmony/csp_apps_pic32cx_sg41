@@ -131,7 +131,7 @@ int main ( void )
                 SYSTICK_TimerStop();
                 LED_OFF();
                 PM_IdleModeEnter();
-                printf("\n\rSW0 Pressed exiting Sleep mode......");
+                printf("\n\rSW1 Pressed exiting Sleep mode......");
                 SYSTICK_TimerStart();
                 display_menu();
                 break;
@@ -146,7 +146,7 @@ int main ( void )
                 PM_StandbyModeEnter();
                 SYSTICK_TimerStart();
                 SYSTICK_DelayUs(1000);
-                printf("\n\rSW0 Pressed exiting Standby mode......");
+                printf("\n\rSW1 Pressed exiting Standby mode......");
                 display_menu();
                 break;
             }
